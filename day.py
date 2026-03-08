@@ -28,9 +28,18 @@ input {
 </style>
 """, unsafe_allow_html=True)
 
-
 st.title("Добро пожаловать в игру 🎈")
 
+# правильные ответы
+passwords = [
+    "Первый",
+    "пароль",
+    "всегда",
+    "нужен",
+    "только",
+    "для",
+    "теста"
+]
 
 if "step" not in st.session_state:
     st.session_state.step = 1
@@ -55,7 +64,7 @@ for i in range(1,8):
 
         if st.button("Вперед", key=f"btn{i}"):
 
-            if answer == str(i):
+            if answer == passwords[i-1]:
 
                 st.success("Правильно! 🎉")
 
