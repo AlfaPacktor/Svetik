@@ -129,7 +129,7 @@ animation:pop 1s ease;
 
 """, unsafe_allow_html=True)
 
-st.title("Добро пожаловать в 🎈 игру 🎈")
+st.title("Добро пожаловать в    🎈 игру 🎈")
 
 questions = [
 ("Это твой вопрос и ты должна на него ответить","первый"),
