@@ -202,7 +202,7 @@ if st.session_state.step == 7:
 
     if not st.session_state.get("gift_opened", False):
 
-        if st.button("🎁 Открыть и забрать подарок 🎁"):
+        if st.button("🎁🎁🎁 Открыть и забрать подарок 🎁🎁🎁"):
             st.session_state.gift_opened = True
 
     if st.session_state.get("gift_opened", False):
