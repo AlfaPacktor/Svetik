@@ -210,6 +210,6 @@ if st.session_state.step == 7:
         st.markdown("""
         <div class="gift">
         🎁 Поздравляю! Ты прошла квест! <br><br>
-        Твоя подсказка — <b>Комод</b> 🎉
+        Твоя подсказка — <b>Комод CaRL</b> 🎉
         </div>
         """, unsafe_allow_html=True)
