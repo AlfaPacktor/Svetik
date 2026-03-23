@@ -182,7 +182,7 @@ for i,(q,answer) in enumerate(questions):
 
         if st.button("Вперед", key=f"btn{i}"):
 
-            if user.upper() == answer:
+            if user.lower() == answer:
 
                 st.success("Умничка!")
 
