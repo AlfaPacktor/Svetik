@@ -72,6 +72,50 @@ left:19px;
 100%{transform:translateY(-120vh)}
 }
 
+/* ------------------- СЕРДЕЧКИ ------------------- */
+
+.heart{
+position:fixed;
+top:-50px;
+font-size:22px;
+animation-name:fall;
+animation-timing-function:linear;
+animation-iteration-count:infinite;
+opacity:0.8;
+}
+
+/* разные позиции, скорость и задержка */
+
+.heart:nth-child(1){
+left:5%;
+animation-duration:12s;
+animation-delay:0s;
+}
+
+.heart:nth-child(2){
+left:25%;
+animation-duration:9s;
+animation-delay:2s;
+}
+
+.heart:nth-child(3){
+left:45%;
+animation-duration:14s;
+animation-delay:4s;
+}
+
+.heart:nth-child(4){
+left:65%;
+animation-duration:11s;
+animation-delay:1s;
+}
+
+.heart:nth-child(5){
+left:85%;
+animation-duration:13s;
+animation-delay:3s;
+}
+
 /* ------------------- ЦВЕТОЧКИ ------------------- */
 
 .flower{
