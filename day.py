@@ -137,6 +137,27 @@ animation:pop 2s ease;
 100%{transform:scale(1)}
 }
 
+/* ------------------- СЕРДЕЧКИ ------------------- */
+
+.heart{
+position:fixed;
+top:-50px;
+font-size:22px;
+animation: fall linear infinite;
+opacity:0.8;
+z-index:999;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-50px) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
+}
+
+
 </style>
 
 <div class="balloon"></div>
@@ -150,6 +171,29 @@ animation:pop 2s ease;
 <div class="flower">🌸</div>
 <div class="flower">🌼</div>
 <div class="flower">🌸</div>
+
+import random
+
+hearts_html = ""
+for i in range(20):
+    left = random.randint(0, 100)
+    duration = random.randint(8, 15)
+    delay = random.randint(0, 10)
+    size = random.randint(16, 30)
+
+    hearts_html += f'''
+    <div class="heart"
+         style="
+         left:{left}%;
+         font-size:{size}px;
+         animation-duration:{duration}s;
+         animation-delay:{delay}s;">
+         ❤️
+    </div>
+    '''
+
+st.markdown(hearts_html, unsafe_allow_html=True)
+
 
 """, unsafe_allow_html=True)
 
