@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 st.set_page_config(page_title="Поздравительный квест")
 
@@ -172,7 +173,7 @@ transform:translateY(110vh) rotate(360deg);
 <div class="flower">🌼</div>
 <div class="flower">🌸</div>
 
-import random
+
 
 hearts_html = ""
 for i in range(20):
