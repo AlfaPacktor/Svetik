@@ -13,9 +13,9 @@ html, body, [class*="css"]  {
 }
 
 /* фон */
-body{
+.stApp {
 background: linear-gradient(135deg,#ffd1dc,#d1ffd6,#d1e0ff);
-overflow-x:hidden;
+
 }
 
 /* бронзовый текст */
