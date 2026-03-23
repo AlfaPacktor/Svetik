@@ -194,6 +194,13 @@ animation:pop 2s ease;
 <div class="flower">🌼</div>
 <div class="flower">🌸</div>
 
+<div class="heart">❤️</div>
+<div class="heart">💖</div>
+<div class="heart">💕</div>
+<div class="heart">💗</div>
+<div class="heart">💘</div>
+
+
 """, unsafe_allow_html=True)
 
 # ------------------- Логика квеста -------------------
