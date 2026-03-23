@@ -152,9 +152,6 @@ animation:pop 2s ease;
 <div class="flower">🌸</div>
 
 
-st.markdown(hearts_html, unsafe_allow_html=True)
-
-
 """, unsafe_allow_html=True)
 
 # ------------------- Логика квеста -------------------
