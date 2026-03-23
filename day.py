@@ -1,4 +1,5 @@
 import streamlit as st
+import random
 
 st.set_page_config(page_title="Поздравительный квест")
 
@@ -15,7 +16,6 @@ html, body, [class*="css"]  {
 /* фон */
 .stApp {
 background: linear-gradient(135deg,#ffd1dc,#d1ffd6,#d1e0ff);
-
 }
 
 /* бронзовый текст */
@@ -59,66 +59,50 @@ background:#555;
 top:50px;
 left:19px;
 }
+
 .balloon:nth-child(1){left:0%;background:#ff6b6b;animation-duration:5s;}
 .balloon:nth-child(2){left:90%;background:#ff9f1c;animation-duration:13s;}
 .balloon:nth-child(3){left:10%;background:#ff6b6b;animation-duration:10s;}
 .balloon:nth-child(4){left:30%;background:#ffd93d;animation-duration:12s;}
 .balloon:nth-child(5){left:50%;background:#6bcB77;animation-duration:14s;}
-.balloon:nth-child(6){left:70%;background:#4d96ff;animation-duration:11s;}
-.balloon:nth-child(7){left:90%;background:#ff9f1c;animation-duration:13s;}
-.balloon:nth-child(8){left:96%;background:#6bcB77;animation-duration:7s;}
+
 @keyframes float{
 0%{transform:translateY(0)}
 100%{transform:translateY(-120vh)}
 }
 
-
-/* ------------------- ЦВЕТОЧКИ ------------------- */
-
+/* цветочки */
 .flower{
 position:fixed;
 top:-50px;
 font-size:25px;
-animation-name:fall;
-animation-timing-function:linear;
-animation-iteration-count:infinite;
-}
-
-/* разные позиции, скорость и задержка */
-
-.flower:nth-child(6){
-left:15%;
-animation-duration:9s;
-animation-delay:0s;
-}
-
-.flower:nth-child(7){
-left:35%;
-animation-duration:13s;
-animation-delay:2s;
-}
-
-.flower:nth-child(8){
-left:55%;
-animation-duration:11s;
-animation-delay:4s;
-}
-
-.flower:nth-child(9){
-left:75%;
-animation-duration:15s;
-animation-delay:1s;
-}
-
-.flower:nth-child(10){
-left:90%;
-animation-duration:10s;
-animation-delay:3s;
+animation:fall linear infinite;
 }
 
 @keyframes fall{
 0%{transform:translateY(-50px)}
 100%{transform:translateY(110vh)}
+}
+
+/* сердечки */
+.heart{
+position:fixed;
+top:-50px;
+animation:fallHeart linear infinite;
+opacity:0.8;
+z-index:999;
+}
+
+@keyframes fallHeart{
+0%{
+transform:translateY(-50px) translateX(0px) rotate(0deg);
+}
+50%{
+transform:translateY(50vh) translateX(30px) rotate(180deg);
+}
+100%{
+transform:translateY(110vh) translateX(-30px) rotate(360deg);
+}
 }
 
 /* подарок */
@@ -145,14 +129,47 @@ animation:pop 2s ease;
 <div class="balloon"></div>
 <div class="balloon"></div>
 
-<div class="flower">🌸</div>
-<div class="flower">🌼</div>
-<div class="flower">🌸</div>
-<div class="flower">🌼</div>
-<div class="flower">🌸</div>
-
-
 """, unsafe_allow_html=True)
+
+# ------------------- Сердечки -------------------
+hearts_html = ""
+for i in range(20):
+    left = random.randint(0, 100)
+    duration = random.randint(8, 15)
+    delay = random.randint(0, 10)
+    size = random.randint(16, 30)
+
+    hearts_html += f'''
+    <div class="heart"
+         style="
+         left:{left}%;
+         font-size:{size}px;
+         animation-duration:{duration}s;
+         animation-delay:{delay}s;">
+         ❤️
+    </div>
+    '''
+
+st.markdown(hearts_html, unsafe_allow_html=True)
+
+# ------------------- Цветочки -------------------
+flowers_html = ""
+for i in range(10):
+    left = random.randint(0, 100)
+    duration = random.randint(10, 20)
+    delay = random.randint(0, 10)
+
+    flowers_html += f'''
+    <div class="flower"
+         style="
+         left:{left}%;
+         animation-duration:{duration}s;
+         animation-delay:{delay}s;">
+         🌸
+    </div>
+    '''
+
+st.markdown(flowers_html, unsafe_allow_html=True)
 
 # ------------------- Логика квеста -------------------
 st.title("🎈Добро🌼 пожаловать в 🎈игру🎈")
@@ -184,7 +201,7 @@ for i,(q,answer) in enumerate(questions):
 
         if st.button("Вперед", key=f"btn{i}"):
 
-            if user.lower() == answer.lower():
+            if user.strip().lower() == answer.strip().lower():
 
                 st.success("Умничка!")
 
