@@ -85,6 +85,12 @@ animation-iteration-count:infinite;
 
 /* разные позиции, скорость и задержка */
 
+.flower:nth-child(5){
+left:5%;
+animation-duration:6s;
+animation-delay:1s;
+}
+
 .flower:nth-child(6){
 left:15%;
 animation-duration:9s;
